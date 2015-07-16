@@ -11,14 +11,14 @@
 % CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
 %
 % Important notes:
-% Adapted by Nicolas Bouchard for pdfLaTeX
+% Modified by Nicolas Bouchard for pdfLaTeX
 % which is easier to use on Linux
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 %%% Class
-\ProvidesClass{cv}[2014/04/01 CV class]
+\ProvidesClass{design_cv}[2014/04/01 CV class]
 \NeedsTeXFormat{LaTeX2e}
 
 \DeclareOption{print}{\def\@cv@print{}}
@@ -37,7 +37,7 @@
 \RequirePackage{hyperref}
 \usepackage[utf8]{inputenc}
 
-%\usepackage[french]{babel}
+\usepackage[french]{babel}
 
 %%% Variables
 \newcommand{\nom}{}
@@ -89,18 +89,6 @@
   \stepcounter{colorCounter}%
 }
 
-%%% Tikz
-\newcommand{\tikzrectangle}{%
-  \begin{tikzpicture}[remember picture,overlay]
-    \node [rectangle, fill=fillheader, anchor=north, minimum width=\paperwidth, minimum height=\hauteurrectangleH] (box) at (current page.north){};
-    \node [anchor=center] (name) at (box) {%
-      \fontsize{40pt}{72pt}\selectfont\color{header}%
-      {\prenom}~{\nom}%
-    };
-    \node [rectangle, fill=fillheader, anchor=south, minimum width=\paperwidth, minimum height=\hauteurrectangleB] (box) at (current page.south){};
-  \end{tikzpicture}
-}
-
 %%% Canva
 \newlength{\margedroite}
 \newlength{\margegauche}
@@ -120,6 +108,18 @@
 \setlength{\hauteurrectangleB}{.7cm}  % Doit être égale à la lettre
 
 \addtolength{\asidelength}{-.5cm}
+
+%%% Tikz
+\newcommand{\tikzrectangle}{%
+  \begin{tikzpicture}[remember picture,overlay]
+    \node [rectangle, fill=fillheader, anchor=north, minimum width=\paperwidth, minimum height=\hauteurrectangleH] (box) at (current page.north){};
+    \node [anchor=center] (name) at (box) {%
+      \fontsize{40pt}{72pt}\selectfont\color{header}%
+      {\prenom}~{\nom}%
+    };
+    \node [rectangle, fill=fillheader, anchor=south, minimum width=\paperwidth, minimum height=\hauteurrectangleB] (box) at (current page.south){};
+  \end{tikzpicture}
+}
 
 %%%% Style
 \usepackage[left=\corpsgauche, right=\margedroite, top=\margehaut]{geometry}
@@ -202,13 +202,13 @@
 % % Bibliography %
 % %%%%%%%%%%%%%%%%
 % \RequirePackage[style=verbose, maxnames=99, sorting=ydnt]{biblatex}
-%
+% 
 % \DeclareFieldFormat[article]{title}{#1\par}
 % \DeclareFieldFormat[book]{title}{#1\par}
 % \DeclareFieldFormat[inproceedings]{title}{#1\par}
 % \DeclareFieldFormat[misc]{title}{#1\par}
 % \DeclareFieldFormat[report]{title}{#1\par}
-%
+% 
 % \DeclareBibliographyDriver{article}{%
 %   \printfield{title}%
 %   \newblock%
@@ -228,7 +228,7 @@
 %   }
 %   \par\vspace{0.3\baselineskip}
 % }
-%
+% 
 % \DeclareBibliographyDriver{book}{%
 %   \printfield{title}%
 %   \newblock%
@@ -248,8 +248,8 @@
 %   }
 %   \par\vspace{0.3\baselineskip}
 % }
-%
-%
+% 
+% 
 % \DeclareBibliographyDriver{inproceedings}{%
 %   \printfield{title}%
 %   \newblock%
@@ -267,7 +267,7 @@
 %   }
 %   \par\vspace{0.3\baselineskip}
 % }
-%
+% 
 % \DeclareBibliographyDriver{misc}{%
 %   \printfield{title}%
 %   \newblock%
@@ -287,7 +287,7 @@
 %   }
 %   \par\vspace{0.3\baselineskip}
 % }
-%
+% 
 % \DeclareBibliographyDriver{report}{%
 %   \printfield{title}%
 %   \newblock%
@@ -305,7 +305,7 @@
 %   }
 %   \par\vspace{0.3\baselineskip}
 % }
-%
+% 
 % \DeclareNameFormat{author}{%
 %   \small\addfontfeature{Color=lightgray}%
 %   \ifblank{#3}{}{#3\space}#1%
@@ -313,14 +313,14 @@
 %     {\addcomma\space}
 %     {}%
 % }
-%
+% 
 % \newcommand{\printbibsection}[2]{
 %   \begin{refsection}
 %     \nocite{*}
 %     \printbibliography[sorting=chronological, type={#1}, title={#2}, heading=subbibliography]
 %   \end{refsection}
 % }
-%
+% 
 % \DeclareSortingScheme{chronological}{
 %   \sort[direction=descending]{\field{year}}
 %   \sort[direction=descending]{\field{month}}
