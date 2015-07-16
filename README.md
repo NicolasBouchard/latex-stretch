@@ -1,4 +1,13 @@
-# Latex templates
-## Nicolas Bouchard
+# Latex stretch
+## About
 
-For using the templates, simply copy the appropriate templates in the base directory of your project or add/symlink to ~/Library/texmf/tex/latex if using MacTex.
+LaTeX stretch provides some templates for LaTeX.
+
+## Installation
+
+There's 2 simple ways to use the template.
+
+* Simply copy the `.cls` file in your project's directory.
+* Add or symlink the template to your LaTeX's templates folder. MacTeX, this folder is `~/Library/texmf/tex/latex if using MacTex`.
+
+Whene you've done one of these, use it as a class in your `.tex`file.
