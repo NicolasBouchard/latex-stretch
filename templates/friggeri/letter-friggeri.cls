@@ -195,7 +195,7 @@
 }
 
 \newcommand{\cloture}{%
-  \vskip\infoparaamount\vskip\baselineskip
+  \vskip\parskip
   \par{\noindent\@salutation}%
   \begin{flushright}%
     \parbox{\margesignature}{\@signature}%
@@ -262,6 +262,7 @@
 \usepackage{avant}
 \renewcommand*\familydefault{\sfdefault}
 \usepackage[T1]{fontenc}
+\linespread{1.1}
 
 \pagestyle{empty}
 \ifdefined\@letter@print
